@@ -75,7 +75,7 @@ function renderFeedbackReport() {
       button.type = "button";
       button.className = "feedback-report-reaction";
       button.setAttribute("aria-pressed", String(stored.reaction === reaction));
-      button.textContent = `${reaction === "like" ? "↑" : "↓"} ${reaction === "like" ? "Like" : "Dislike"} ${Number(stored[reaction] || 0)}`;
+      button.textContent = `${reaction === "like" ? "Like" : "Dislike"} ${Number(stored[reaction] || 0)}`;
 
       button.addEventListener("click", () => {
         const value = getReaction(entry.id);
