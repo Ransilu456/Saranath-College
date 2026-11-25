@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Read Saranath College news, academic achievements and school event highlights.">
+  <title>News &amp; Events | Saranath College</title>
+  <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
+  <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/news-events.css">
+  <script src="../js/script.js" defer></script>
+  <script src="../js/site-data.js" defer></script>
+  <script src="../js/news-events.js" defer></script>
+</head>
+<body data-root="../" data-current-page="news-events" data-page-label="News &amp; Events">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div data-site-header></div>
+
+  <main class="news-page" id="main-content">
+    <header class="page-intro news-page-intro">
+      <p class="eyebrow">From our school community</p>
+      <h1>News &amp; Events</h1>
+      <p>Academic milestones, school celebrations and moments worth sharing from Saranath College.</p>
+    </header>
+
+    <section class="news-section" id="school-news" aria-labelledby="school-news-heading">
+      <header class="news-section__heading">
+        <p class="eyebrow">Updates &amp; achievements</p>
+        <h2 id="school-news-heading">School News</h2>
+      </header>
+      <div class="news-grid" id="news-grid" aria-live="polite"></div>
+    </section>
+
+    <section class="news-section" id="school-events" aria-labelledby="school-events-heading">
+      <header class="news-section__heading">
+        <p class="eyebrow">Gatherings &amp; celebrations</p>
+        <h2 id="school-events-heading">School Events</h2>
+      </header>
+      <div class="news-grid" id="events-grid" aria-live="polite"></div>
+    </section>
+
+    <template id="news-card-template">
+      <article class="story-card">
+        <a class="story-card__image-link" href="" tabindex="-1" aria-hidden="true">
+          <img src="" alt="" width="1200" height="800" loading="lazy">
+        </a>
+        <div class="story-card__content">
+          <p class="story-card__meta"><time></time><span aria-hidden="true">·</span><span class="story-card__category"></span></p>
+          <h3><a class="story-card__title" href=""></a></h3>
+          <p class="story-card__excerpt"></p>
+          <a class="story-card__link" href="">Read full story <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </article>
+    </template>
+
+    <aside class="news-services-callout">
+      <div>
+        <p class="eyebrow">More from Saranath</p>
+        <h2>Find student resources and school services.</h2>
+      </div>
+      <a class="button button--navy" href="student-services.html">Explore student services <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </aside>
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111111">
+  <meta name="description" content="Read a Saranath College news story.">
+  <title>School Story | Saranath College</title>
+  <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
+  <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/news-events.css">
+  <script src="../js/script.js" defer></script>
+  <script src="../js/site-data.js" defer></script>
+  <script src="../js/news-events.js" defer></script>
+</head>
+<body data-root="../" data-current-page="news-events" data-page-label="News Story">
+  <a class="skip-link" href="#main-content">Skip to story</a>
+  <div data-site-header></div>
+
+  <main class="news-story-page" id="main-content">
+    <article id="news-story" hidden>
+      <header class="news-story-hero">
+        <img id="news-story-image" src="" alt="" width="1600" height="1000">
+        <div class="news-story-hero__shade"></div>
+        <div class="news-story-hero__content">
+          <a class="news-story-back" href="news-events.html"><span aria-hidden="true">←</span> Back to News</a>
+          <p class="news-story-meta"><time id="news-story-date"></time><span aria-hidden="true">·</span><span id="news-story-type"></span><span aria-hidden="true">·</span><span id="news-story-category"></span></p>
+          <h1 id="news-story-title"></h1>
+        </div>
+      </header>
+
+      <div class="news-story-layout">
+        <div class="news-story-article">
+          <div class="news-story-copy" id="news-story-copy"></div>
+          <a class="news-story-back news-story-back--bottom" href="news-events.html"><span aria-hidden="true">←</span> Back to all stories</a>
+        </div>
+
+        <aside class="news-stay-connected">
+          <p class="eyebrow">Stay connected</p>
+          <h2>Keep up with school life.</h2>
+          <p>Explore student services, learning resources and school event information.</p>
+          <a class="button button--navy" href="student-services.html">Explore student services <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+          <a class="news-contact-link" href="mailto:info.saranathcollege@gmail.com">Contact the school</a>
+        </aside>
+      </div>
+    </article>
+
+    <section class="news-story-error" id="news-story-error" role="status" hidden>
+      <p class="eyebrow">Story unavailable</p>
+      <h1>We couldn’t find that story.</h1>
+      <p>Return to News &amp; Events to browse the available stories.</p>
+      <a class="button button--navy" href="news-events.html">Back to News <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+    </section>
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174f7a">
+  <meta name="description" content="Explore student clubs, societies and activities at Saranath College.">
+  <title>Clubs &amp; Societies | Saranath College</title>
+  <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
+  <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/clubs.css">
+  <script src="../js/script.js" defer></script>
+  <script src="../js/site-data.js" defer></script>
+  <script src="../js/clubs.js" defer></script>
+</head>
+<body data-root="../" data-current-page="clubs" data-page-label="Clubs &amp; Societies">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div data-site-header></div>
+
+  <main class="clubs-page" id="main-content">
+    <header class="page-intro clubs-page-intro">
+      <p class="eyebrow">Explore your interests</p>
+      <h1>Clubs &amp; Societies</h1>
+      <p>Our school offers a variety of clubs and societies where students can explore their interests, develop skills and take part in creative, cultural and social activities.</p>
+    </header>
+
+    <section class="club-directory" id="club-directory">
+      <header class="club-directory--heading">
+        <div>
+          <h2>Explore student groups</h2>
+        </div>
+      </header>
+
+      <div class="club-toolbar">
+        <div class="club-filters" id="club-filters" role="group" aria-label="Filter student groups"></div>
+      </div>
+
+      <section class="clubs-grid" aria-label="Student clubs and groups"></section>
+      <template id="club-filter-template">
+        <button type="button" aria-pressed="false"></button>
+      </template>
+      <template id="club-card-template">
+        <article class="club-card">
+          <img class="club-card--image" src="" alt="" width="1200" height="800" loading="lazy">
+          <div class="club-card--content">
+            <p class="club-card--category"></p>
+            <h3></h3>
+            <p class="club-card--description"></p>
+            <details class="club-card--more" name="club-detail">
+              <summary>Explore this group</summary>
+              <div><p class="club-card--details"></p><a>Ask about this group <i class="fa fa-arrow-right" aria-hidden="true"></i></a></div>
+            </details>
+          </div>
+        </article>
+      </template>
+    </section>
+
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>

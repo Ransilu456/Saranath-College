@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174f7a">
+  <meta name="description" content="Discover sports, clubs, student leadership and community life at Saranath College.">
+  <title>Student Life | Saranath College</title>
+  <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
+  <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/student-life.css">
+  <script src="../js/script.js" defer></script>
+  <script src="../js/site-data.js" defer></script>
+  <script src="../js/student-life.js" defer></script>
+</head>
+<body class="student-life-page" data-root="../" data-current-page="student-life" data-page-label="Student Life">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <div data-site-header></div>
+
+  <main id="main-content">
+    <header class="page-intro">
+      <p class="eyebrow">Beyond the classroom</p>
+      <h1>Student Life</h1>
+      <p>Discover the sports, clubs, traditions and shared experiences that bring Saranath College students together.</p>
+    </header>
+    <figure class="student-banner">
+      <img src="../assets/images/school-grounds.webp" alt="Saranath College grounds surrounded by palm trees" width="1280" height="960">
+    </figure>
+
+    <div class="page-grid life-layout">
+      <nav class="section-index" aria-label="Student life contents">
+        <p class="section-index--label">On this page</p>
+        <a class="is-active" href="#academics">Academic pathways</a>
+        <a href="#sports">Sports &amp; Activities</a>
+        <a href="#prefects">School Prefect Board</a>
+        <a href="#clubs">Clubs &amp; Societies</a>
+        <a href="#culture">Religious &amp; Cultural Activities</a>
+        <a href="#leadership">Leadership Programs</a>
+        <a href="#events">Events &amp; updates</a>
+        <a href="#gallery">Photo gallery</a>
+        <a href="#feedback">Community voices</a>
+      </nav>
+
+      <div class="page-content">
+        <section class="content-section life-story academic-section" id="academics">
+          <div class="section-heading" data-section-heading="academics"></div>
+
+          <div class="academic-levels" id="academic-levels" aria-label="School academic levels"></div>
+          <template id="academic-level-template">
+            <article class="academic-level">
+              <img src="" alt="" width="1200" height="800" loading="lazy">
+              <div class="academic-level__content">
+                <span class="academic-label"></span>
+                <h3></h3>
+                <p></p>
+              </div>
+            </article>
+          </template>
+
+          <div class="academic-streams" id="al-streams">
+            <div class="academic-stream-explorer">
+              <div class="academic-stream-explorer__sidebar">
+                <div class="academic-streams__heading">
+                  <p class="eyebrow">Advanced Level</p>
+                  <h3>Academic Streams</h3>
+                  <p>Choose a stream to explore example subjects and further study pathways.</p>
+                </div>
+                <div class="academic-stream-selector" id="academic-stream-selector" role="group" aria-label="Select an Advanced Level stream"></div>
+                <template id="academic-stream-button-template">
+                  <button class="academic-stream-selector__button" type="button" aria-pressed="false">
+                    <span class="academic-stream-selector__icon" aria-hidden="true"></span>
+                    <span class="academic-stream-selector__label"><strong></strong><small></small></span>
+                    <i class="fa fa-arrow-right" aria-hidden="true"></i>
+                  </button>
+                </template>
+                <p class="academic-streams__note">Subject availability and combinations may vary. Contact the school for current A/L options.</p>
+              </div>
+
+              <div id="academic-stream-detail"></div>
+              <template id="academic-stream-detail-template">
+                <article class="academic-stream-detail" aria-labelledby="academic-stream-title">
+                  <div class="academic-stream-detail__overview">
+                    <img id="academic-stream-image" src="" alt="" width="1200" height="800" loading="lazy">
+                    <div class="academic-stream-detail__info">
+                      <span class="academic-label" id="academic-stream-category"></span>
+                      <div class="academic-stream-detail__info-row">
+                        <span class="academic-stream-detail__info-icon" aria-hidden="true">A/L</span>
+                        <div><small>STUDY FOCUS</small><p id="academic-stream-focus"></p></div>
+                      </div>
+                      <div class="academic-stream-detail__info-row">
+                        <span class="academic-stream-detail__info-icon" aria-hidden="true">→</span>
+                        <div><small>FURTHER STUDY</small><p id="academic-stream-careers"></p></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="academic-stream-detail__content">
+                    <h4 id="academic-stream-title"></h4>
+                    <p class="academic-stream-detail__quote" id="academic-stream-description"></p>
+                    <ul class="academic-stream-detail__subjects" id="academic-stream-subjects" aria-label="Example subjects"></ul>
+                    <div class="academic-stream-detail__footer">
+                      <a id="academic-stream-contact" href="">Ask about this stream <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                      <span>Further study pathways</span>
+                    </div>
+                  </div>
+                </article>
+              </template>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section life-story" id="sports"></section>
+        <section class="content-section life-story" id="prefects"></section>
+        <section class="content-section life-story" id="clubs"></section>
+        <section class="content-section life-story" id="culture"></section>
+        <section class="content-section life-story" id="leadership"></section>
+        <section class="content-section life-story" id="events"></section>
+
+        <section class="content-section gallery-section" id="gallery">
+          <div class="section-heading" data-section-heading="gallery"></div>
+          <div class="gallery-filters" role="group" aria-label="Filter gallery photographs"></div>
+          <div class="gallery-grid" aria-live="polite"></div>
+          <template id="gallery-item-template">
+            <button class="gallery-item" type="button">
+              <img src="" alt="" width="1200" height="800" loading="lazy">
+              <span class="gallery-item--caption"></span>
+              <span class="gallery-item--expand" aria-hidden="true">↗</span>
+            </button>
+          </template>
+        </section>
+
+        <section class="content-section voices-section" id="feedback"></section>
+      </div>
+    </div>
+
+    <dialog class="gallery-dialog" id="gallery-dialog" aria-label="Expanded gallery photograph">
+      <div class="gallery-dialog--top">
+        <p id="gallery-dialog-caption" aria-live="polite"></p>
+        <button class="gallery-dialog--close" type="button" aria-label="Close photograph">×</button>
+      </div>
+      <div class="gallery-dialog--image-wrap">
+        <button class="gallery-dialog--nav gallery-dialog--prev" type="button" aria-label="Previous photograph">‹</button>
+        <img id="gallery-dialog-image" src="" alt="">
+        <button class="gallery-dialog--nav gallery-dialog--next" type="button" aria-label="Next photograph">›</button>
+      </div>
+    </dialog>
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>

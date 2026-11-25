@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#174f7a">
+  <meta name="description" content="View recorded student ideas, concerns and community feedback at Saranath College.">
+  <title>Feedback Report | Saranath College</title>
+  <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
+  <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/student-services.css">
+  <link rel="stylesheet" href="../css/service-pages.css">
+  <script src="../js/script.js" defer></script>
+  <script src="../js/site-data.js" defer></script>
+  <script src="../js/student-services.js" defer></script>
+</head>
+<body data-root="../" data-current-page="student-services" data-page-label="Feedback Report">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div data-site-header></div>
+
+  <main class="service-detail-page" id="main-content">
+    <nav class="service-breadcrumb" aria-label="Breadcrumb">
+      <a href="student-services.html">Student Services</a><span aria-hidden="true">/</span><span>Feedback Report</span>
+    </nav>
+    <header class="page-intro service-detail-intro">
+      <p class="eyebrow">Community record</p>
+      <h1>Feedback Report</h1>
+      <p>View and respond to ideas shared with the school community.</p>
+    </header>
+
+    <section class="feedback-report-toolbar" aria-label="Feedback report controls">
+      <div class="feedback-report-filters" aria-label="Filter feedback reports">
+        <button class="is-active" type="button" data-report-filter="all" aria-pressed="true">All</button>
+        <button type="button" data-report-filter="ideas" aria-pressed="false">Ideas</button>
+        <button type="button" data-report-filter="concerns" aria-pressed="false">Concerns</button>
+        <button type="button" data-report-filter="feedback" aria-pressed="false">Feedback</button>
+      </div>
+    </section>
+
+    <div class="feedback-report-summary" aria-live="polite">
+      <article><strong id="report-total">0</strong><span>Total entries</span></article>
+      <article><strong id="report-ideas-total">0</strong><span>Student ideas</span></article>
+      <article><strong id="report-concerns-total">0</strong><span>Concerns</span></article>
+      <article><strong id="report-feedback-total">0</strong><span>Community feedback</span></article>
+    </div>
+
+    <section class="feedback-report-list" id="feedback-report-list" aria-label="Recorded feedback"></section>
+  </main>
+
+  <div data-site-footer></div>
+</body>
+</html>
