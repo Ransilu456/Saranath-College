@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#174f7a">
-  <meta name="description" content="View recorded student ideas, concerns and community feedback at Saranath College.">
-  <title>Feedback Report | Saranath College</title>
+  <meta name="description" content="Send comments, feedback, suggestions or complaints directly to Saranath College.">
+  <title>Comments &amp; Feedback | Saranath College</title>
   <link rel="icon" href="../assets/images/college-icon.webp" type="image/webp" sizes="512x512">
   <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
   <link rel="stylesheet" href="../css/style.css">
@@ -18,37 +18,60 @@
   <script src="../js/student-services.js" defer></script>
 </head>
 
-<body data-root="../" data-current-page="student-services" data-page-label="Feedback Report">
+<body data-root="../" data-current-page="student-services" data-page-label="Comments &amp; Feedback">
   <a class="skip-link" href="#main-content">Skip to content</a>
   <div data-site-header></div>
 
   <main class="service-detail-page" id="main-content">
     <nav class="service-breadcrumb" aria-label="Breadcrumb">
-      <a href="student-services.html">Student Services</a><span aria-hidden="true">/</span><span>Feedback Report</span>
+      <a href="student-services.html">Student Services</a>
+      <span aria-hidden="true">/</span>
+      <span>Comments &amp; Feedback</span>
     </nav>
     <header class="page-intro service-detail-intro">
-      <p class="eyebrow">Community record</p>
-      <h1>Feedback Report</h1>
-      <p>View and respond to ideas shared with the school community.</p>
+      <p class="eyebrow">Your voice matters</p>
+      <h1>Comments &amp; Feedback</h1>
+      <p>Share a comment, suggestion, feedback or complaint directly with the school. Messages are not displayed publicly.</p>
     </header>
 
-    <section class="feedback-report-toolbar" aria-label="Feedback report controls">
-      <div class="feedback-report-filters" aria-label="Filter feedback reports">
-        <button class="is-active" type="button" data-report-filter="all" aria-pressed="true">All</button>
-        <button type="button" data-report-filter="ideas" aria-pressed="false">Ideas</button>
-        <button type="button" data-report-filter="concerns" aria-pressed="false">Concerns</button>
-        <button type="button" data-report-filter="feedback" aria-pressed="false">Feedback</button>
+    <section class="service-form-panel" aria-labelledby="feedback-form-title">
+      <div class="service-form-panel__heading">
+        <p class="eyebrow">Send a message</p>
+        <h2 id="feedback-form-title">What would you like the school to know?</h2>
+        <p>Choose a message type and tell us what is on your mind.</p>
       </div>
+
+      <form class="service-form" id="feedback-submission-form">
+        <div class="service-form-row">
+          <div class="service-form-field">
+            <label for="feedback-type">Message type</label>
+            <select id="feedback-type" name="type" required>
+              <option value="Comment">Comment</option>
+              <option value="Feedback">Feedback</option>
+              <option value="Suggestion">Suggestion</option>
+              <option value="Complaint">Complaint</option>
+            </select>
+          </div>
+          <div class="service-form-field">
+            <label for="feedback-name">Your name <span>(optional)</span></label>
+            <input id="feedback-name" name="name" autocomplete="name" maxlength="100">
+          </div>
+        </div>
+        <div class="service-form-field">
+          <label for="feedback-email">Email address <span>(optional)</span></label>
+          <input id="feedback-email" name="email" type="email" autocomplete="email" maxlength="254">
+        </div>
+        <div class="service-form-field">
+          <label for="feedback-message">Your message</label>
+          <textarea id="feedback-message" name="message" rows="7" maxlength="5000" required
+            placeholder="Write your comment, feedback, suggestion or complaint here..."></textarea>
+        </div>
+        <div class="service-form-footer">
+          <p class="service-form-status" id="feedback-form-status" role="status" aria-live="polite"></p>
+          <button class="button button--navy" type="submit">Continue to email</button>
+        </div>
+      </form>
     </section>
-
-    <div class="feedback-report-summary" aria-live="polite">
-      <article><strong id="report-total">0</strong><span>Total entries</span></article>
-      <article><strong id="report-ideas-total">0</strong><span>Student ideas</span></article>
-      <article><strong id="report-concerns-total">0</strong><span>Concerns</span></article>
-      <article><strong id="report-feedback-total">0</strong><span>Community feedback</span></article>
-    </div>
-
-    <section class="feedback-report-list" id="feedback-report-list" aria-label="Recorded feedback"></section>
   </main>
 
   <div data-site-footer></div>

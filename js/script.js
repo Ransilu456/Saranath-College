@@ -55,6 +55,13 @@ function renderSiteHeader() {
     }
   });
 
+  document.addEventListener("click", (event) => {
+    const clickedMenu = primaryNavigation.contains(event.target) || menuButton.contains(event.target);
+    if (!clickedMenu && primaryNavigation.classList.contains("is-open")) {
+      closeMenu();
+    }
+  });
+
   document.addEventListener("keydown", (event) => {
     if (event.key === "Escape" && primaryNavigation.classList.contains("is-open")) {
       closeMenu();

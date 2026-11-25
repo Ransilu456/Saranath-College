@@ -58,6 +58,21 @@ function filterClubs(filter) {
   });
 }
 
+function selectClubFilter(filter) {
+  const selectedButton = Array.from(clubFilters.querySelectorAll("[data-club-filter]"))
+    .find((button) => button.dataset.clubFilter === filter);
+  if (!selectedButton) {
+    return;
+  }
+
+  clubFilters.querySelectorAll("[data-club-filter]").forEach((filterButton) => {
+    const isActive = filterButton === selectedButton;
+    filterButton.classList.toggle("is-active", isActive);
+    filterButton.setAttribute("aria-pressed", String(isActive));
+  });
+  filterClubs(filter);
+}
+
 renderClubCards();
 renderClubFilters();
 
@@ -68,12 +83,7 @@ if (clubFilters && clubGrid) {
       return;
     }
 
-    clubFilters.querySelectorAll("[data-club-filter]").forEach((filterButton) => {
-      const isActive = filterButton === button;
-      filterButton.classList.toggle("is-active", isActive);
-      filterButton.setAttribute("aria-pressed", String(isActive));
-    });
-    filterClubs(button.dataset.clubFilter);
+    selectClubFilter(button.dataset.clubFilter);
   });
 
   clubGrid.addEventListener("click", (event) => {
@@ -91,4 +101,9 @@ if (clubFilters && clubGrid) {
       });
     }
   });
+
+  const requestedFilter = new URLSearchParams(window.location.search).get("category");
+  if (requestedFilter && clubFilterOptions.some((option) => option.category === requestedFilter)) {
+    selectClubFilter(requestedFilter);
+  }
 }

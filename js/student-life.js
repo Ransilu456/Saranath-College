@@ -117,6 +117,7 @@ renderAcademicLevels();
 renderAcademicStreams();
 
 const studentLifeSections = window.SaranathData.studentLife.sections;
+const studentHouses = window.SaranathData.studentLife.houses;
 
 function createSectionHeading(section) {
   const heading = document.createElement("div");
@@ -171,6 +172,114 @@ function createLifeFeature(section) {
 
   feature.append(copy, figure);
   return feature;
+}
+
+function createHouseExplorer() {
+  const explorer = document.createElement("div");
+  explorer.className = "house-explorer";
+
+  const heading = document.createElement("h3");
+  heading.className = "house-explorer__heading";
+  heading.textContent = "Four houses, one community";
+  explorer.append(heading);
+
+  const cards = document.createElement("div");
+  cards.className = "house-grid";
+  cards.setAttribute("role", "group");
+  cards.setAttribute("aria-label", "Select a school house");
+
+  const spotlight = document.createElement("article");
+  spotlight.className = "house-spotlight";
+  spotlight.setAttribute("aria-live", "polite");
+  const copy = document.createElement("div");
+  copy.className = "house-spotlight__copy";
+  const label = document.createElement("p");
+  label.className = "house-spotlight__label";
+  const title = document.createElement("h3");
+  const description = document.createElement("p");
+  description.className = "house-spotlight__description";
+  const facts = document.createElement("div");
+  facts.className = "house-spotlight__facts";
+  const emblemFact = document.createElement("div");
+  emblemFact.className = "house-spotlight__fact";
+  const emblemLabel = document.createElement("span");
+  emblemLabel.textContent = "HOUSE EMBLEM";
+  const emblemValue = document.createElement("strong");
+  emblemFact.append(emblemLabel, emblemValue);
+  const colourFact = document.createElement("div");
+  colourFact.className = "house-spotlight__fact";
+  const colourLabel = document.createElement("span");
+  colourLabel.textContent = "HOUSE COLOUR";
+  const colourValue = document.createElement("strong");
+  colourFact.append(colourLabel, colourValue);
+  facts.append(emblemFact, colourFact);
+  copy.append(label, title, description, facts);
+
+  const score = document.createElement("div");
+  score.className = "house-spotlight__score";
+  const scoreValue = document.createElement("strong");
+  const scoreLabel = document.createElement("small");
+  scoreLabel.textContent = "HOUSE POINTS";
+  score.append(scoreValue, scoreLabel);
+  spotlight.append(copy, score);
+
+  function selectHouse(house) {
+    cards.querySelectorAll("[data-house-id]").forEach((button) => {
+      const active = button.dataset.houseId === house.id;
+      button.classList.toggle("is-active", active);
+      button.setAttribute("aria-pressed", String(active));
+      button.querySelector(".house-card__selected").hidden = !active;
+    });
+
+    label.textContent = "HOUSE SPOTLIGHT";
+    title.textContent = `${house.name} House`;
+    description.textContent = house.description;
+    emblemValue.textContent = house.bird;
+    colourValue.textContent = house.colour;
+    scoreValue.textContent = String(house.points);
+  }
+
+  studentHouses.forEach((house, index) => {
+    const button = document.createElement("button");
+    button.className = "house-card";
+    button.type = "button";
+    button.dataset.houseId = house.id;
+    button.style.setProperty("--house-color", house.color);
+    button.setAttribute("aria-pressed", "false");
+    button.setAttribute("aria-label", `${house.name} House, ${house.points} points`);
+
+    const top = document.createElement("span");
+    top.className = "house-card__top";
+    const emblem = document.createElement("span");
+    emblem.className = "house-card__emblem";
+    emblem.setAttribute("aria-hidden", "true");
+    emblem.textContent = house.name[0];
+    const points = document.createElement("span");
+    points.className = "house-card__points";
+    points.textContent = `${house.points} pts`;
+    top.append(emblem, points);
+
+    const name = document.createElement("strong");
+    name.className = "house-card__name";
+    name.textContent = `${house.name} House`;
+    const bird = document.createElement("span");
+    bird.className = "house-card__bird";
+    bird.textContent = house.bird;
+    const colour = document.createElement("span");
+    colour.className = "house-card__colour";
+    colour.textContent = house.colour;
+    const selected = document.createElement("span");
+    selected.className = "house-card__selected";
+    selected.textContent = "Currently selected";
+    selected.hidden = index !== 0;
+    button.append(top, name, bird, colour, selected);
+    button.addEventListener("click", () => selectHouse(house));
+    cards.append(button);
+  });
+
+  explorer.append(cards, spotlight);
+  selectHouse(studentHouses[0]);
+  return explorer;
 }
 
 function createLifeSectionContent(section) {
@@ -245,9 +354,36 @@ function createLifeSectionContent(section) {
     const interests = document.createElement("div");
     interests.className = "interest-row";
     interests.setAttribute("aria-label", "Club interests");
+    const interestIcons = {
+      arts: '<path d="M12 3a9 9 0 1 0 0 18h1.2a2 2 0 0 0 1.4-3.4c-.6-.6-.2-1.6.7-1.6H18a3 3 0 0 0 3-3c0-5.3-4-10-9-10Z"/><circle cx="7.5" cy="11" r="1"/><circle cx="11" cy="7.5" r="1"/><circle cx="16" cy="9" r="1"/>',
+      media: '<rect x="3" y="4" width="18" height="13" rx="2"/><path d="M2 21h20M8 17l-1 4m9-4 1 4"/>',
+      learning: '<path d="M9 3h6m-5 0v6l-5.5 9a2 2 0 0 0 1.7 3h11.6a2 2 0 0 0 1.7-3L14 9V3"/><path d="M7.5 16h9"/>',
+      service: '<circle cx="9" cy="8" r="3"/><circle cx="17" cy="9" r="2.5"/><path d="M3 20v-1a6 6 0 0 1 12 0v1m0-4a5 5 0 0 1 6 4"/>'
+    };
     section.interests.forEach((interest) => {
-      const item = document.createElement("span");
-      item.textContent = interest;
+      const item = document.createElement("a");
+      item.href = `clubs.html?category=${encodeURIComponent(interest.category)}#club-directory`;
+      item.setAttribute("aria-label", `Browse ${interest.label} groups`);
+      const icon = document.createElement("span");
+      icon.className = "interest-row__icon";
+      icon.setAttribute("aria-hidden", "true");
+      const iconGlyph = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      iconGlyph.setAttribute("viewBox", "0 0 24 24");
+      iconGlyph.setAttribute("fill", "none");
+      iconGlyph.setAttribute("stroke", "currentColor");
+      iconGlyph.setAttribute("stroke-width", "1.7");
+      iconGlyph.setAttribute("stroke-linecap", "round");
+      iconGlyph.setAttribute("stroke-linejoin", "round");
+      iconGlyph.innerHTML = interestIcons[interest.category];
+      icon.append(iconGlyph);
+      const label = document.createElement("span");
+      label.className = "interest-row__label";
+      label.textContent = interest.label;
+      const arrow = document.createElement("span");
+      arrow.className = "interest-row__arrow";
+      arrow.setAttribute("aria-hidden", "true");
+      arrow.textContent = "→";
+      item.append(icon, label, arrow);
       interests.append(item);
     });
     preview.append(copy, interests);
@@ -321,11 +457,14 @@ function renderStudentLifeSections() {
     const headingMount = mount.querySelector("[data-section-heading]");
     if (headingMount) {
       headingMount.replaceChildren(...createSectionHeading(section).childNodes);
-    } else if (section.type === "community") {
-      mount.replaceChildren(createSectionHeading(section), createLifeSectionContent(section));
-    } else {
-      mount.replaceChildren(createSectionHeading(section), createLifeSectionContent(section));
+      return;
     }
+
+    const content = [createSectionHeading(section), createLifeSectionContent(section)];
+    if (section.id === "sports") {
+      content.push(createHouseExplorer());
+    }
+    mount.replaceChildren(...content);
   });
 }
 
@@ -469,42 +608,3 @@ if (galleryDialog && galleryCloseButton && galleryPreviousButton && galleryNextB
     }
   });
 }
-
-// Community feedback: display short reflections from this browser.
-const feedbackList = document.querySelector("#feedback-list");
-const feedbackCount = document.querySelector("#feedback-count");
-const feedbackStorageKey = "saranath-student-life-feedback";
-let feedbackEntries = [];
-
-const renderFeedback = () => {
-  if (!feedbackList || !feedbackCount) {
-    return;
-  }
-
-  feedbackList.replaceChildren();
-  feedbackCount.textContent = String(feedbackEntries.length);
-  feedbackEntries.forEach((entry) => {
-    const card = document.createElement("article");
-    card.className = "feedback-entry";
-    const message = document.createElement("p");
-    message.textContent = entry.message;
-    card.append(message);
-    feedbackList.append(card);
-  });
-};
-
-try {
-  const savedFeedback = localStorage.getItem(feedbackStorageKey);
-  if (savedFeedback) {
-    const parsedFeedback = JSON.parse(savedFeedback);
-    if (Array.isArray(parsedFeedback)) {
-      feedbackEntries = parsedFeedback.filter((entry) =>
-        entry && typeof entry.message === "string"
-      ).slice(0, 8);
-    }
-  }
-} catch {
-  feedbackEntries = [];
-}
-
-renderFeedback();

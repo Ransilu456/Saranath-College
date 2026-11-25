@@ -156,7 +156,7 @@ window.SaranathData = {
         focus: "Mathematics, physics and the physical sciences.",
         careers: "Engineering, physical sciences and technology.",
         description: "A rigorous stream for students interested in mathematics, physics and understanding how the world works.",
-        subjects: ["Combined Mathematics", "Physics", "Chemistry"]
+        subjects: ["Combined Mathematics", "Physics", "Chemistry", "ICT"]
       },
       biological: {
         number: "02",
@@ -218,7 +218,7 @@ window.SaranathData = {
         id: "sports",
         eyebrow: "02 / Move together",
         title: "Sports & Activities",
-        intro: "From the first practice to the final whistle, sport gives students room to build fitness, teamwork and confidence.",
+        intro: "From the first practice to the final whistle, sport gives students room to build fitness, teamwork and confidence. Four houses bring everyone together in friendly competition.",
         type: "feature",
         heading: "Find your pace. Back your team.",
         description: "Students take part in games, athletics and friendly competition while learning discipline, resilience and respect for one another.",
@@ -251,7 +251,12 @@ window.SaranathData = {
         heading: "Grow through shared interests.",
         description: "Meet classmates with similar passions, explore new abilities and contribute to activities across the school.",
         link: { href: "clubs.html", label: "Browse clubs & societies" },
-        interests: ["Creative arts", "Media & technology", "Science & discovery", "Community & leadership"]
+        interests: [
+          { label: "Creative arts", category: "arts" },
+          { label: "Media & technology", category: "media" },
+          { label: "Science & discovery", category: "learning" },
+          { label: "Community & leadership", category: "service" }
+        ]
       },
       {
         id: "culture",
@@ -298,12 +303,50 @@ window.SaranathData = {
       {
         id: "feedback",
         eyebrow: "09 / Your voice matters",
-        title: "Community Voices",
-        intro: "Read anonymous ideas and feedback from the school community.",
+        title: "Share Your Feedback",
+        intro: "Send the school a comment, suggestion, feedback or concern.",
         type: "community",
-        heading: "Ideas for a better school.",
-        description: "Explore feedback shared about student life and activities.",
-        link: { href: "feedback-report.html", label: "View Feedback & Reports" }
+        heading: "Help us make things better.",
+        description: "Share comments, feedback or complaints directly with the school. Messages are sent privately and are not displayed publicly.",
+        link: { href: "feedback-report.html", label: "Share comments or feedback" }
+      }
+    ],
+    houses: [
+      {
+        id: "thisara",
+        name: "Thisara",
+        bird: "Royal Swan",
+        colour: "Crimson Red",
+        points: 0,
+        color: "#e3262d",
+        description: "Symbolized by the noble Swan (Hansa), renowned in Sinhala classical tradition for discerning truth from illusion with poise and dignity."
+      },
+      {
+        id: "mayura",
+        name: "Mayura",
+        bird: "Emerald Peacock",
+        colour: "Emerald Green",
+        points: 0,
+        color: "#159e55",
+        description: "The Peacock represents vitality, pride and expressive beauty, bringing energy and confidence to every house activity."
+      },
+      {
+        id: "lihini",
+        name: "Lihini",
+        bird: "Swift Tern",
+        colour: "Sapphire Blue",
+        points: 0,
+        color: "#2f66ef",
+        description: "The Swift Tern stands for speed, focus and the courage to reach beyond familiar horizons."
+      },
+      {
+        id: "paravi",
+        name: "Paravi",
+        bird: "Messenger Dove",
+        colour: "Royal Gold",
+        points: 0,
+        color: "#e9ae00",
+        description: "The Messenger Dove represents peace, unity and the steadfast spirit of a community that supports one another."
       }
     ],
     galleryPhotos: [
@@ -331,7 +374,7 @@ window.SaranathData = {
     { category: "arts", label: "Performing arts", name: "Dance Society", image: "music-performance.webp", alt: "A performance stage seen from the audience", description: "Celebrate movement, creative expression and cultural traditions through dance.", details: "Take part in rehearsals, learn choreography and contribute to performances and celebrations." },
     { category: "learning", label: "Discovery & technology", name: "Science & ICT", image: "science-activity.webp", alt: "Laboratory glassware on a bench", description: "Ask questions, experiment with ideas and develop practical technology skills.", details: "Explore science and digital tools through hands-on activities and collaborative problem-solving." },
     { category: "learning", label: "Language & ideas", name: "Literary & Debate Society", image: "learning-together.webp", alt: "Students learning together in a classroom", description: "Share ideas and build confidence in reading, writing and public speaking.", details: "Practise thoughtful discussion, creative writing and presenting your point of view." },
-    { category: "service", label: "Community & environment", name: "Environment & Community Service", image: "community-service.webp", alt: "Friends helping one another outdoors", description: "Contribute to projects that care for the school environment and the wider community.", details: "Look for practical ways to work together, support others and care for shared spaces." },
+    { category: "service", label: "Community & environCment", name: "Environment & Community Service", image: "community-service.webp", alt: "Friends helping one another outdoors", description: "Contribute to projects that care for the school environment and the wider community.", details: "Look for practical ways to work together, support others and care for shared spaces." },
     { category: "arts", label: "Creative arts", name: "Art & Craft Society", image: "student-sports.webp", alt: "Young students focused on a creative activity", description: "Experiment with visual art, design and hands-on creative projects.", details: "Try different materials and techniques, then share what you create with the school community." }
   ],
   clubFilters: [
@@ -344,13 +387,6 @@ window.SaranathData = {
   services: [
     { number: "01", category: "Updates & notices", title: "School News", description: "Read school announcements and important community updates.", link: { href: "news-events.html#school-news", label: "Browse school news" } },
     { number: "02", category: "Gatherings & activities", title: "School Events", description: "Explore school activities, celebrations and event highlights.", link: { href: "news-events.html#school-events", label: "View school events" } },
-    { number: "03", category: "Community", title: "Feedback & Reports", description: "View school ideas and community feedback.", link: { href: "feedback-report.html", label: "Open feedback report" } }
-  ],
-  feedbackReport: [
-    { id: "study-space", type: "ideas", typeLabel: "Idea", title: "Quiet study area", content: "A quiet shared space would help students prepare for exams and complete group study tasks." },
-    { id: "recycling", type: "ideas", typeLabel: "Idea", title: "More recycling points", content: "Recycling points around shared areas would help keep the school clean and support responsible habits." },
-    { id: "shared-facilities", type: "concerns", typeLabel: "Concern", title: "Shared facilities", content: "Shared activity areas could be made more comfortable and easier to maintain." },
-    { id: "sports", type: "feedback", typeLabel: "Feedback", title: "Sports and teamwork", content: "Sports activities encourage confidence, friendship and teamwork." },
-    { id: "culture", type: "feedback", typeLabel: "Feedback", title: "Culture and tradition", content: "Celebrations and cultural activities help the school community learn from one another." }
+    { number: "03", category: "Community", title: "Comments & Feedback", description: "Send a comment, suggestion, feedback or complaint directly to the school.", link: { href: "feedback-report.html", label: "Share your thoughts" } }
   ]
 };
