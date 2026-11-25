@@ -27,6 +27,21 @@ if ("IntersectionObserver" in window && sectionLinks.length && contentSections.l
 const academicLevels = window.SaranathData.studentLife.academicLevels;
 const academicStreams = window.SaranathData.studentLife.academicStreams;
 
+function createImageViewerButton(image, caption) {
+  const button = document.createElement("button");
+  button.className = "image-viewer-trigger";
+  button.type = "button";
+  button.dataset.fullImage = image.src;
+  button.dataset.fullAlt = image.alt;
+  button.dataset.fullCaption = caption || image.alt;
+  button.setAttribute("aria-label", `View full-size image: ${caption || image.alt}`);
+  if (image.parentElement) {
+    image.parentElement.insertBefore(button, image);
+  }
+  button.append(image);
+  return button;
+}
+
 function renderAcademicLevels() {
   const levelGrid = document.querySelector("#academic-levels");
   const levelTemplate = document.querySelector("#academic-level-template");
@@ -40,6 +55,7 @@ function renderAcademicLevels() {
     const image = card.querySelector("img");
     image.src = `../assets/images/${level.image}`;
     image.alt = level.alt;
+    createImageViewerButton(image);
     card.querySelector(".academic-label").textContent = level.gradeRange;
     card.querySelector("h3").textContent = level.name;
     card.querySelector("p").textContent = level.description;
@@ -70,6 +86,8 @@ function renderAcademicStreams() {
 
   const detail = detailTemplate.content.firstElementChild.cloneNode(true);
   detailMount.replaceChildren(detail);
+  const streamImage = detail.querySelector("#academic-stream-image");
+  createImageViewerButton(streamImage);
 
   function selectAcademicStream(streamKey) {
     const stream = academicStreams[streamKey];
@@ -86,6 +104,11 @@ function renderAcademicStreams() {
     const image = detail.querySelector("#academic-stream-image");
     image.src = `../assets/images/${stream.image}`;
     image.alt = stream.alt;
+    const imageButton = image.closest(".image-viewer-trigger");
+    imageButton.dataset.fullImage = image.src;
+    imageButton.dataset.fullAlt = stream.alt;
+    imageButton.dataset.fullCaption = stream.alt;
+    imageButton.setAttribute("aria-label", `View full-size image: ${stream.alt}`);
     detail.querySelector("#academic-stream-category").textContent = stream.category;
     detail.querySelector("#academic-stream-title").textContent = `Exploring ${stream.name}`;
     detail.querySelector("#academic-stream-focus").textContent = stream.focus;
@@ -168,7 +191,7 @@ function createLifeFeature(section) {
   image.loading = "lazy";
   const caption = document.createElement("figcaption");
   caption.textContent = section.imageCaption;
-  figure.append(image, caption);
+  figure.append(createImageViewerButton(image, section.imageCaption), caption);
 
   feature.append(copy, figure);
   return feature;
@@ -309,6 +332,41 @@ function createLifeSectionContent(section) {
     return null;
   }
 
+  if (section.type === "achievements") {
+    const grid = document.createElement("div");
+    grid.className = "achievement-grid";
+    const stories = window.SaranathData.school.news
+      .filter((story) => section.storyIds.includes(story.id));
+
+    stories.forEach((story) => {
+      const card = document.createElement("article");
+      card.className = "achievement-card";
+      const image = document.createElement("img");
+      image.src = `../assets/images/${story.image}`;
+      image.alt = story.imageAlt;
+      image.width = 1200;
+      image.height = 800;
+      image.loading = "lazy";
+      card.append(createImageViewerButton(image, story.title));
+
+      const content = document.createElement("div");
+      content.className = "achievement-card__content";
+      const title = document.createElement("h3");
+      title.textContent = story.title;
+      const excerpt = document.createElement("p");
+      excerpt.textContent = story.excerpt;
+      const link = document.createElement("a");
+      link.className = "text-link";
+      link.href = `news-story.html?story=${encodeURIComponent(story.id)}`;
+      link.textContent = "Read achievement story";
+      content.append(title, excerpt, link);
+      card.append(content);
+      grid.append(card);
+    });
+
+    return grid;
+  }
+
   if (section.type === "feature") {
     return createLifeFeature(section);
   }
@@ -324,7 +382,7 @@ function createLifeSectionContent(section) {
     image.loading = "lazy";
     const caption = document.createElement("figcaption");
     caption.textContent = section.imageCaption;
-    figure.append(image, caption);
+    figure.append(createImageViewerButton(image, section.imageCaption), caption);
     return figure;
   }
 
@@ -423,8 +481,8 @@ function createLifeSectionContent(section) {
       entry.className = "event-timeline--entry";
       const time = document.createElement("time");
       time.className = "event-timeline--year";
-      time.dateTime = event.dateTime;
-      time.textContent = event.dateTime.slice(0, 4);
+      time.dateTime = event.dateTime || "";
+      time.textContent = event.dateTime ? event.dateTime.slice(0, 4) : "";
       const link = document.createElement("a");
       link.className = "event-timeline--card";
       link.href = "news-events.html#school-events";
@@ -433,7 +491,7 @@ function createLifeSectionContent(section) {
       const title = document.createElement("h3");
       title.textContent = event.title;
       const date = document.createElement("span");
-      date.textContent = `${event.category} · ${event.shortDate}`;
+      date.textContent = event.shortDate ? `${event.category} · ${event.shortDate}` : event.category;
       cardHeading.append(title, date);
       const excerpt = document.createElement("p");
       excerpt.textContent = event.excerpt;
@@ -538,6 +596,7 @@ function showGalleryItem() {
     return;
   }
 
+  galleryDialog.classList.remove("gallery-dialog--single");
   const image = item.querySelector("img");
   galleryDialogImage.src = image.currentSrc || image.src;
   galleryDialogImage.alt = image.alt;
@@ -551,6 +610,19 @@ function moveGallery(direction) {
 
 renderGalleryFilters();
 renderGallery();
+
+document.addEventListener("click", (event) => {
+  const button = event.target.closest(".image-viewer-trigger");
+  if (!button || !galleryDialog || typeof galleryDialog.showModal !== "function") {
+    return;
+  }
+
+  galleryDialog.classList.add("gallery-dialog--single");
+  galleryDialogImage.src = button.dataset.fullImage;
+  galleryDialogImage.alt = button.dataset.fullAlt;
+  galleryDialogCaption.textContent = button.dataset.fullCaption;
+  galleryDialog.showModal();
+});
 
 if (galleryFilters && galleryGrid) {
   galleryFilters.addEventListener("click", (event) => {
@@ -601,6 +673,9 @@ if (galleryDialog && galleryCloseButton && galleryPreviousButton && galleryNextB
   });
 
   galleryDialog.addEventListener("keydown", (event) => {
+    if (galleryDialog.classList.contains("gallery-dialog--single")) {
+      return;
+    }
     if (event.key === "ArrowLeft") {
       moveGallery(-1);
     } else if (event.key === "ArrowRight") {

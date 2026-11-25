@@ -30,8 +30,13 @@
       </p>
     </header>
     <figure class="student-banner">
-      <img src="../assets/images/school-grounds.webp" alt="Saranath College grounds surrounded by palm trees"
-        width="1280" height="960">
+      <button class="image-viewer-trigger" type="button" data-full-image="../assets/images/school-grounds.webp"
+        data-full-alt="Saranath College grounds surrounded by palm trees"
+        data-full-caption="Saranath College grounds"
+        aria-label="View full-size image: Saranath College grounds">
+        <img src="../assets/images/school-grounds.webp" alt="Saranath College grounds surrounded by palm trees"
+          width="1280" height="960">
+      </button>
     </figure>
 
     <div class="page-grid life-layout">
@@ -43,6 +48,7 @@
         <a href="#clubs">Clubs &amp; Societies</a>
         <a href="#culture">Religious &amp; Cultural Activities</a>
         <a href="#leadership">Leadership Programs</a>
+        <a href="#achievements">Student achievements</a>
         <a href="#events">Events &amp; updates</a>
         <a href="#gallery">Photo gallery</a>
         <a href="#feedback">Share feedback</a>
@@ -128,6 +134,7 @@
         <section class="content-section life-story" id="clubs"></section>
         <section class="content-section life-story" id="culture"></section>
         <section class="content-section life-story" id="leadership"></section>
+        <section class="content-section life-story" id="achievements"></section>
         <section class="content-section life-story" id="events"></section>
 
         <section class="content-section gallery-section" id="gallery">
@@ -147,10 +154,10 @@
       </div>
     </div>
 
-    <dialog class="gallery-dialog" id="gallery-dialog" aria-label="Expanded gallery photograph">
+    <dialog class="gallery-dialog" id="gallery-dialog" aria-label="Expanded image viewer">
       <div class="gallery-dialog--top">
         <p id="gallery-dialog-caption" aria-live="polite"></p>
-        <button class="gallery-dialog--close" type="button" aria-label="Close photograph">×</button>
+        <button class="gallery-dialog--close" type="button" aria-label="Close image viewer">×</button>
       </div>
       <div class="gallery-dialog--image-wrap">
         <button class="gallery-dialog--nav gallery-dialog--prev" type="button"

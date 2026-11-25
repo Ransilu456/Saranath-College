@@ -70,13 +70,16 @@ function renderNewsStory() {
   const image = document.querySelector("#news-story-image");
   image.src = `../assets/images/${story.image}`;
   image.alt = story.imageAlt;
+  const imageLink = document.querySelector("#news-story-image-link");
+  imageLink.href = image.src;
+  imageLink.setAttribute("aria-label", `View full-size image: ${story.title}`);
   const date = document.querySelector("#news-story-date");
   date.hidden = !story.date;
   date.dateTime = story.dateTime || "";
   date.textContent = story.date ? story.date.toUpperCase() : "";
   date.nextElementSibling.hidden = !story.date;
   document.querySelector("#news-story-type").textContent =
-    story.type === "event" ? "School Event" : story.date ? "School News" : "Feature";
+    story.type === "event" ? "School Event" : story.category === "School Feature" ? "Feature" : "School News";
   document.querySelector("#news-story-category").textContent = story.category.toUpperCase();
   document.querySelector("#news-story-title").textContent = story.title;
 
@@ -87,6 +90,24 @@ function renderNewsStory() {
     paragraph.textContent = text;
     paragraphs.append(paragraph);
   });
+  if (Array.isArray(story.studentNames) && story.studentNames.length > 0) {
+    const students = document.createElement("section");
+    students.className = "news-story-students";
+    const heading = document.createElement("h2");
+    heading.className = "news-story-students__title";
+    heading.textContent = story.studentNames.length === 1 ? "Featured student" : "Selected students";
+    const list = document.createElement("ul");
+    list.className = "news-story-students__list";
+    story.studentNames.forEach((name) => {
+      const item = document.createElement("li");
+      const student = document.createElement("strong");
+      student.textContent = name;
+      item.append(student);
+      list.append(item);
+    });
+    students.append(heading, list);
+    paragraphs.append(students);
+  }
   copy.replaceChildren(paragraphs);
 
   document.title = `${story.title} | Saranath College`;
