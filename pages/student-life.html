@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,10 +11,12 @@
   <link rel="apple-touch-icon" href="../assets/images/college-icon.webp" sizes="512x512">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/student-life.css">
+  <link rel="stylesheet" href="../css/responsive.css">
   <script src="../js/script.js" defer></script>
   <script src="../js/site-data.js" defer></script>
   <script src="../js/student-life.js" defer></script>
 </head>
+
 <body class="student-life-page" data-root="../" data-current-page="student-life" data-page-label="Student Life">
   <a class="skip-link" href="#main-content">Skip to content</a>
 
@@ -23,10 +26,12 @@
     <header class="page-intro">
       <p class="eyebrow">Beyond the classroom</p>
       <h1>Student Life</h1>
-      <p>Discover the sports, clubs, traditions and shared experiences that bring Saranath College students together.</p>
+      <p>Discover the sports, clubs, traditions and shared experiences that bring Saranath College students together.
+      </p>
     </header>
     <figure class="student-banner">
-      <img src="../assets/images/school-grounds.webp" alt="Saranath College grounds surrounded by palm trees" width="1280" height="960">
+      <img src="../assets/images/school-grounds.webp" alt="Saranath College grounds surrounded by palm trees"
+        width="1280" height="960">
     </figure>
 
     <div class="page-grid life-layout">
@@ -67,7 +72,8 @@
                   <h3>Academic Streams</h3>
                   <p>Choose a stream to explore example subjects and further study pathways.</p>
                 </div>
-                <div class="academic-stream-selector" id="academic-stream-selector" role="group" aria-label="Select an Advanced Level stream"></div>
+                <div class="academic-stream-selector" id="academic-stream-selector" role="group"
+                  aria-label="Select an Advanced Level stream"></div>
                 <template id="academic-stream-button-template">
                   <button class="academic-stream-selector__button" type="button" aria-pressed="false">
                     <span class="academic-stream-selector__icon" aria-hidden="true"></span>
@@ -75,7 +81,8 @@
                     <i class="fa fa-arrow-right" aria-hidden="true"></i>
                   </button>
                 </template>
-                <p class="academic-streams__note">Subject availability and combinations may vary. Contact the school for current A/L options.</p>
+                <p class="academic-streams__note">Subject availability and combinations may vary. Contact the school for
+                  current A/L options.</p>
               </div>
 
               <div id="academic-stream-detail"></div>
@@ -87,20 +94,26 @@
                       <span class="academic-label" id="academic-stream-category"></span>
                       <div class="academic-stream-detail__info-row">
                         <span class="academic-stream-detail__info-icon" aria-hidden="true">A/L</span>
-                        <div><small>STUDY FOCUS</small><p id="academic-stream-focus"></p></div>
+                        <div><small>STUDY FOCUS</small>
+                          <p id="academic-stream-focus"></p>
+                        </div>
                       </div>
                       <div class="academic-stream-detail__info-row">
                         <span class="academic-stream-detail__info-icon" aria-hidden="true">→</span>
-                        <div><small>FURTHER STUDY</small><p id="academic-stream-careers"></p></div>
+                        <div><small>FURTHER STUDY</small>
+                          <p id="academic-stream-careers"></p>
+                        </div>
                       </div>
                     </div>
                   </div>
                   <div class="academic-stream-detail__content">
                     <h4 id="academic-stream-title"></h4>
                     <p class="academic-stream-detail__quote" id="academic-stream-description"></p>
-                    <ul class="academic-stream-detail__subjects" id="academic-stream-subjects" aria-label="Example subjects"></ul>
+                    <ul class="academic-stream-detail__subjects" id="academic-stream-subjects"
+                      aria-label="Example subjects"></ul>
                     <div class="academic-stream-detail__footer">
-                      <a id="academic-stream-contact" href="">Ask about this stream <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+                      <a id="academic-stream-contact" href="">Ask about this stream <i class="fa fa-arrow-right"
+                          aria-hidden="true"></i></a>
                       <span>Further study pathways</span>
                     </div>
                   </div>
@@ -140,7 +153,8 @@
         <button class="gallery-dialog--close" type="button" aria-label="Close photograph">×</button>
       </div>
       <div class="gallery-dialog--image-wrap">
-        <button class="gallery-dialog--nav gallery-dialog--prev" type="button" aria-label="Previous photograph">‹</button>
+        <button class="gallery-dialog--nav gallery-dialog--prev" type="button"
+          aria-label="Previous photograph">‹</button>
         <img id="gallery-dialog-image" src="" alt="">
         <button class="gallery-dialog--nav gallery-dialog--next" type="button" aria-label="Next photograph">›</button>
       </div>
@@ -149,4 +163,5 @@
 
   <div data-site-footer></div>
 </body>
+
 </html>

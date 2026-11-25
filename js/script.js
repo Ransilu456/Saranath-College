@@ -1,3 +1,4 @@
+// Header
 function renderSiteHeader() {
   const mount = document.querySelector("[data-site-header]");
   if (!mount) {
@@ -6,6 +7,7 @@ function renderSiteHeader() {
 
   const root = document.body.dataset.root || "";
   const currentPage = document.body.dataset.currentPage;
+
   const header = document.createElement("header");
   header.className = "site-header";
   header.innerHTML = `
@@ -61,6 +63,7 @@ function renderSiteHeader() {
   });
 }
 
+// Footer
 function renderSiteFooter() {
   const mount = document.querySelector("[data-site-footer]");
   if (!mount) {

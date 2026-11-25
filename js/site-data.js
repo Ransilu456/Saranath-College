@@ -247,11 +247,11 @@ window.SaranathData = {
         title: "Clubs & Societies",
         intro: "Try a new interest, build a skill and meet people who are excited about the same things you are.",
         type: "clubs",
-        cardEyebrow: "Get involved",
-        heading: "Find your people.",
-        description: "Explore student groups across the arts, learning, leadership and service.",
-        link: { href: "clubs.html", label: "Explore all clubs" },
-        interests: ["Media & storytelling", "Music & drama", "Science & ICT", "Community service"]
+        cardEyebrow: "Find your community",
+        heading: "Grow through shared interests.",
+        description: "Meet classmates with similar passions, explore new abilities and contribute to activities across the school.",
+        link: { href: "clubs.html", label: "Browse clubs & societies" },
+        interests: ["Creative arts", "Media & technology", "Science & discovery", "Community & leadership"]
       },
       {
         id: "culture",

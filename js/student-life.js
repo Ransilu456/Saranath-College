@@ -234,6 +234,7 @@ function createLifeSectionContent(section) {
     const link = document.createElement("a");
     link.className = "button button--navy";
     link.href = section.link.href;
+    link.setAttribute("aria-label", `${section.link.label}: view all clubs and societies`);
     link.append(document.createTextNode(section.link.label));
     const icon = document.createElement("i");
     icon.className = "fa fa-arrow-right";
