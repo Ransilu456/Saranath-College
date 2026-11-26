@@ -16,8 +16,9 @@ School Website's New Features For QR Project
 
 - `js/student-life.js` - Academic streams and student-life gallery
 - `js/clubs.js` - Club listings
-- `js/school-content.js` - Shared school news and event data
+- `js/site-data.js` - Shared news, event, student-life and club data
 - `js/news-events.js` - News and event page rendering
 - `js/student-services.js` - Student services and feedback email form
+- News and event entries in `js/site-data.js` can include optional story galleries. Set `moreImages` to `true`, set `imageCount` to the number of extra photos, and add each photo path and descriptive alt text to `images`. Use `moreImages: false` and `imageCount: 0` for stories without extra photos.
 
 Images and Fonts in `assets/images/` and `assets/fonts/`.

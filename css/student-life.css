@@ -2189,7 +2189,7 @@
 .academic-level>img {
   width: 100%;
   height: 165px;
-  object-fit: contain;
+  object-fit: cover;
   background: #eef0f2;
 }
 
@@ -2201,7 +2201,7 @@
 .academic-level>.image-viewer-trigger img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .academic-level__content {

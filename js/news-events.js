@@ -110,6 +110,34 @@ function renderNewsStory() {
   }
   copy.replaceChildren(paragraphs);
 
+  const gallery = document.querySelector("#news-story-gallery");
+  const galleryImages = document.querySelector("#news-story-gallery-images");
+  gallery.hidden = true;
+  galleryImages.replaceChildren();
+  if (story.moreImages === true) {
+    if (!Array.isArray(story.images) || story.imageCount !== story.images.length) {
+      console.error(`Invalid photo gallery data for story "${story.id}".`);
+    } else if (story.imageCount > 0) {
+      const galleryTitle = document.querySelector("#news-story-gallery-title");
+      galleryTitle.textContent = `More photos (${story.imageCount})`;
+      story.images.forEach((photo) => {
+        const link = document.createElement("a");
+        link.href = `../assets/images/${photo.image}`;
+        link.target = "_blank";
+        link.rel = "noopener";
+        const galleryImage = document.createElement("img");
+        galleryImage.src = link.href;
+        galleryImage.alt = photo.alt;
+        galleryImage.width = 1200;
+        galleryImage.height = 800;
+        galleryImage.loading = "lazy";
+        link.append(galleryImage);
+        galleryImages.append(link);
+      });
+      gallery.hidden = false;
+    }
+  }
+
   document.title = `${story.title} | Saranath College`;
   storyArticle.hidden = false;
 }

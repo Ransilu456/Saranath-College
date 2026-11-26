@@ -288,6 +288,43 @@
   font-size: 18px;
 }
 
+.news-story-gallery {
+  margin: 38px 0 0;
+}
+
+.news-story-gallery h2 {
+  margin: 0 0 16px;
+  color: #263545;
+  font-family: "Varela Round", "Montserrat", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+}
+
+.news-story-gallery__images {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 180px), 220px));
+  gap: 14px;
+}
+
+.news-story-gallery__images a {
+  display: block;
+  overflow: hidden;
+  border-radius: 4px;
+  background: #e8ebed;
+}
+
+.news-story-gallery__images img {
+  width: 100%;
+  height: 160px;
+  object-fit: contain;
+  transition: transform .25s ease;
+}
+
+.news-story-gallery__images a:hover img,
+.news-story-gallery__images a:focus-visible img {
+  transform: scale(1.03);
+}
+
 .news-story-students {
   margin: 28px 0;
   padding: 20px 22px;

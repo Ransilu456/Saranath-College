@@ -2,21 +2,6 @@ window.SaranathData = {
   school: {
     news: [
       {
-        id: "annual-prize-giving",
-        type: "news",
-        category: "Student Achievements",
-        date: "June 12, 2026",
-        dateTime: "2026-06-12",
-        title: "Annual Prize Giving Celebrates Student Achievements",
-        excerpt: "Students and staff came together at Saranath College's Annual Prize Giving 2025.",
-        image: "achievements/price-giving_2.webp",
-        imageAlt: "Students, staff and guests gather at Saranath College's Annual Prize Giving",
-        paragraphs: [
-          "Saranath College held its Annual Prize Giving 2025 at the college auditorium on June 12, 2026.",
-          "The ceremony recognised student achievements and brought the school community together to celebrate their hard work."
-        ]
-      },
-      {
         id: "visionex-hackathon-finalists",
         type: "news",
         category: "Student Achievements",
@@ -24,6 +9,8 @@ window.SaranathData = {
         excerpt: "Saranath students qualified for the final round of the VisionNEX Inter School Hackathon.",
         image: "learning/hackathon.webp",
         imageAlt: "Saranath students and their teacher at the VisionNEX Inter School Hackathon",
+        moreImages: false,
+        imageCount: 0,
         paragraphs: [
           "A team from Saranath College qualified for the final round of the VisionNEX Inter School Hackathon.",
           "The competition was organised by the Digital and Distance Learning Department of IIT in collaboration with the IIT Kurunegala Regional Centre."
@@ -37,6 +24,8 @@ window.SaranathData = {
         excerpt: "Saranath College celebrates Visal Sarangana's selection to the Sri Lanka Karate National Team.",
         image: "sports/karate.webp",
         imageAlt: "Saranath student Visal Sarangana named in the Sri Lanka Karate National Team",
+        moreImages: false,
+        imageCount: 0,
         studentNames: ["Visal Sarangana"],
         paragraphs: [
           "Saranath College student Visal Sarangana has been selected for the Sri Lanka Karate National Team.",
@@ -51,6 +40,8 @@ window.SaranathData = {
         excerpt: "Visal Saranga, Danushi Vihango and Shenuka Mayodya earned selection for the provincial senior karate squad.",
         image: "sports/karate_2.webp",
         imageAlt: "Three Saranath karate athletes holding certificates after selection to the provincial squad",
+        moreImages: false,
+        imageCount: 0,
         studentNames: ["Visal Saranga", "Danushi Vihango", "Shenuka Mayodya"],
         paragraphs: [
           "Three Saranath College students have been selected for the Provincial Senior Karate squad.",
@@ -65,6 +56,8 @@ window.SaranathData = {
         excerpt: "Michelle Shenaya, Kavisha Pabodhini and Shenuka Mayondi have been selected for the provincial handball squad.",
         image: "sports/handball.webp",
         imageAlt: "Three Saranath students selected for the provincial handball squad",
+        moreImages: false,
+        imageCount: 0,
         studentNames: ["Michelle Shenaya", "Kavisha Pabodhini", "Shenuka Mayondi"],
         paragraphs: [
           "Three Saranath College students have been selected for the Provincial Handball squad.",
@@ -79,14 +72,46 @@ window.SaranathData = {
         excerpt: "Saranath College cadets are recognised as winners in a 2026 competition.",
         image: "achievements/cadetjpeg.webp",
         imageAlt: "Saranath College cadets pictured on a 2026 winners announcement",
+        moreImages: false,
+        imageCount: 0,
         paragraphs: [
           "Saranath College cadets were recognised as winners in a 2026 competition.",
           "The school congratulates the cadets and their instructors on their achievement."
         ]
       },
+      {
+        id: "student-success-celebration",
+        type: "news",
+        category: "Student Achievements",
+        title: "Celebrating Student Success",
+        excerpt: "Saranath College students and staff come together to celebrate success.",
+        image: "achievements/student-success-celebration.webp",
+        imageAlt: "Saranath College students and staff pictured together beneath a Cheers to Your Success message.",
+        moreImages: false,
+        imageCount: 0,
+        paragraphs: [
+          "Saranath College students and staff came together to celebrate success."
+        ]
+      },
 
     ],
     events: [
+      {
+        id: "annual-prize-giving",
+        category: "Student Achievements",
+        date: "June 12, 2026",
+        dateTime: "2026-06-12",
+        title: "Annual Prize Giving Celebrates Student Achievements",
+        excerpt: "Students and staff came together at Saranath College's Annual Prize Giving 2025.",
+        image: "achievements/price-giving_2.webp",
+        imageAlt: "Students, staff and guests gather at Saranath College's Annual Prize Giving",
+        moreImages: false,
+        imageCount: 0,
+        paragraphs: [
+          "Saranath College held its Annual Prize Giving 2025 at the college auditorium on June 12, 2026.",
+          "The ceremony recognised student achievements and brought the school community together to celebrate their hard work."
+        ]
+      },
       {
         id: "annual-sports-meet",
         category: "Sports & Athletics",
@@ -97,6 +122,22 @@ window.SaranathData = {
         excerpt: "Track, field and team competitions bring students together to compete, encourage classmates and celebrate participation.",
         image: "track-and-field.webp",
         imageAlt: "An athlete preparing to start a track race",
+        moreImages: true,
+        imageCount: 3,
+        images: [
+          {
+            image: "sports/annual-sports-meet-2026-warmup.webp",
+            alt: "Saranath students warm up on the field before the 2026 Annual Sports Meet."
+          },
+          {
+            image: "sports/annual-sports-meet-2026-race.webp",
+            alt: "A Saranath athlete races during the 2026 Annual Sports Meet."
+          },
+          {
+            image: "sports/annual-sports-meet-2026-flag-ceremony.webp",
+            alt: "Teachers and guests gather for the 2026 Annual Sports Meet flag ceremony."
+          }
+        ],
         paragraphs: [
           "The Annual Sports Meet brings students together for track, field and team competitions.",
           "Students compete, encourage their classmates and celebrate participation."
@@ -112,6 +153,8 @@ window.SaranathData = {
         excerpt: "Students share projects, meet new people and invite the school community to explore student groups.",
         image: "learning/hackathon.webp",
         imageAlt: "Saranath students and a teacher at the VisionNEX Inter School Hackathon",
+        moreImages: false,
+        imageCount: 0,
         paragraphs: [
           "Students share projects, meet new people and invite the school community to explore the many clubs and societies at Saranath."
         ]
@@ -126,6 +169,8 @@ window.SaranathData = {
         excerpt: "A programme of music, dance and tradition gave students a moment to perform and celebrate together.",
         image: "culture/new-year-celeb.webp",
         imageAlt: "Students and staff take part in a Sinhala and Tamil New Year procession",
+        moreImages: false,
+        imageCount: 0,
         paragraphs: [
           "A joyful programme of music, dance and tradition gave students a moment to perform and celebrate together."
         ]
@@ -138,8 +183,79 @@ window.SaranathData = {
         excerpt: "The school community recognised a new group of student leaders and their commitment to service and responsibility.",
         image: "leadership/head-prefects.webp",
         imageAlt: "Two Saranath College prefects at the 2026 Prefect Investiture Ceremony",
+        moreImages: false,
+        imageCount: 0,
         paragraphs: [
           "The school community recognised a new group of student leaders and their commitment to service and responsibility."
+        ]
+      },
+      {
+        id: "duruthu-perahera",
+        category: "Arts & Culture",
+        title: "Duruthu Perahera",
+        excerpt: "Students and the community come together to mark the Duruthu Perahera with a colourful procession.",
+        image: "culture/duruthu-perahera-procession.webp",
+        imageAlt: "A brightly illuminated ceremonial procession at the Duruthu Perahera.",
+        moreImages: true,
+        imageCount: 1,
+        images: [
+          {
+            image: "culture/duruthu-perahera-dancer.webp",
+            alt: "A performer takes part in the Duruthu Perahera procession."
+          }
+        ],
+        paragraphs: [
+          "The Duruthu Perahera brought a colourful ceremonial procession to the Saranath College community."
+        ]
+      },
+      {
+        id: "aal-section-welcome",
+        category: "Arts & Culture",
+        title: "A/L Section Welcome Celebration",
+        excerpt: "Students welcomed the new A/L section with a traditional dance performance.",
+        image: "culture/aal-section-welcome-dance.webp",
+        imageAlt: "Students perform a traditional dance at the A/L section welcome celebration.",
+        moreImages: false,
+        imageCount: 0,
+        paragraphs: [
+          "Students marked the welcome for the A/L section with a traditional dance performance."
+        ]
+      },
+      {
+        id: "music-band-performance",
+        category: "Arts & Culture",
+        title: "School Music Band Performance",
+        excerpt: "The school music band performs together on stage at a Saranath College event.",
+        image: "culture/music-band-performance.webp",
+        imageAlt: "Saranath College students perform with the school music band on stage.",
+        moreImages: false,
+        imageCount: 0,
+        paragraphs: [
+          "Saranath College students performed together as the school music band."
+        ]
+      },
+      {
+        id: "clean-sri-lanka-leadership-camp",
+        category: "Community & Leadership",
+        title: "Clean Sri Lanka Next Gen Leaders Camp",
+        excerpt: "Students and staff joined activities at the Clean Sri Lanka Next Gen Leaders Camp.",
+        image: "leadership/clean-sri-lanka-camp-address.webp",
+        imageAlt: "A speaker addresses participants at the Clean Sri Lanka Next Gen Leaders Camp.",
+        moreImages: true,
+        imageCount: 2,
+        images: [
+          {
+            image: "leadership/clean-sri-lanka-camp-group.webp",
+            alt: "Saranath College staff and participants gather at the Clean Sri Lanka Next Gen Leaders Camp."
+          },
+          {
+            image: "leadership/clean-sri-lanka-camp-dance.webp",
+            alt: "Students perform a traditional dance at the Clean Sri Lanka Next Gen Leaders Camp."
+          }
+        ],
+        paragraphs: [
+          "Saranath College students and staff took part in the Clean Sri Lanka Next Gen Leaders Camp.",
+          "The event included a group gathering, an address and a cultural performance."
         ]
       }
     ]
@@ -416,12 +532,11 @@ window.SaranathData = {
     { category: "media", label: "Media & communication", name: "Media Unit", image: "school-celebration.webp", alt: "Audience at a live event", description: "Tell the stories behind school life through photography, video, writing and announcements.", details: "Try interviewing, event coverage, editing and creative storytelling as part of a team." },
     { category: "service", label: "Student leadership", name: "School Prefect Board", image: "leadership/prefect-board.webp", alt: "The Saranath College Board of Prefects for 2026–2027", description: "Support students and teachers while helping school activities run with care and responsibility.", details: "Build communication and organisation skills while modelling a positive school culture." },
     { category: "arts", label: "Performing arts", name: "Drama Society", image: "culture/drama-club.webp", alt: "Saranath College students taking part in a drama production", description: "Explore theatre, performance and storytelling through creative projects and productions.", details: "Discover acting, stagecraft and collaboration, whether you want to perform or work behind the scenes." },
-    { category: "arts", label: "Performing arts", name: "Music Society", image: "school-celebration.webp", alt: "Lights above a live audience", description: "Make music, practise together and bring creative energy to school celebrations.", details: "Share your musical interests, learn from peers and explore group performance." },
-    { category: "arts", label: "Performing arts", name: "Dance Society", image: "music-performance.webp", alt: "A performance stage seen from the audience", description: "Celebrate movement, creative expression and cultural traditions through dance.", details: "Take part in rehearsals, learn choreography and contribute to performances and celebrations." },
+    { category: "arts", label: "Performing arts", name: "Music Society", image: "culture/music-band-performance.webp", alt: "Lights above a live audience", description: "Make music, practise together and bring creative energy to school celebrations.", details: "Share your musical interests, learn from peers and explore group performance." },
+    { category: "arts", label: "Performing arts", name: "Dance Society", image: "culture/aal-section-welcome-dance.webp", alt: "A performance stage seen from the audience", description: "Celebrate movement, creative expression and cultural traditions through dance.", details: "Take part in rehearsals, learn choreography and contribute to performances and celebrations." },
     { category: "learning", label: "Discovery & technology", name: "Science & ICT", image: "learning/hackathon.webp", alt: "Saranath students and a teacher at the VisionNEX Inter School Hackathon", description: "Ask questions, experiment with ideas and develop practical technology skills.", details: "Explore science and digital tools through hands-on activities and collaborative problem-solving." },
     { category: "learning", label: "Language & ideas", name: "Literary & Debate Society", image: "learning-together.webp", alt: "Students learning together in a classroom", description: "Share ideas and build confidence in reading, writing and public speaking.", details: "Practise thoughtful discussion, creative writing and presenting your point of view." },
     { category: "service", label: "Community & environCment", name: "Environment & Community Service", image: "community/zero-plastic.webp", alt: "Saranath College's Zero Plastic Club members with their banner", description: "Contribute to projects that care for the school environment and the wider community.", details: "Look for practical ways to work together, support others and care for shared spaces." },
-    { category: "arts", label: "Creative arts", name: "Art & Craft Society", image: "student-sports.webp", alt: "Young students focused on a creative activity", description: "Experiment with visual art, design and hands-on creative projects.", details: "Try different materials and techniques, then share what you create with the school community." }
   ],
   clubFilters: [
     { category: "all", label: "All groups" },
